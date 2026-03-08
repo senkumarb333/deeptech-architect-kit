@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import PageHeader from "@/components/visuals/PageHeader";
 
 const solutions = [
   { id: "mushroom-automation", title: "Mushroom Farm Automation", desc: "End-to-end automation for commercial mushroom cultivation with AI environmental control.", tech: ["SILIR1000", "AI/ML", "IoT Sensors", "KitHub"] },
@@ -15,15 +16,7 @@ const solutions = [
 
 const Solutions = () => (
   <div>
-    <section className="bg-gradient-to-br from-secondary/5 via-background to-primary/5 py-16 lg:py-24">
-      <div className="container">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-tech-blue">Solutions</span>
-          <h1 className="mb-4 text-4xl font-bold text-foreground lg:text-5xl">Comprehensive AgriTech Solutions</h1>
-          <p className="text-lg text-muted-foreground">From farm automation to strategic consulting, we deliver end-to-end solutions for the agriculture ecosystem.</p>
-        </div>
-      </div>
-    </section>
+    <PageHeader tag="Solutions" title="Comprehensive AgriTech Solutions" description="From farm automation to strategic consulting, we deliver end-to-end solutions for the agriculture ecosystem." tagColor="text-tech-blue" />
     <section className="py-16 lg:py-24">
       <div className="container">
         <div className="grid gap-6 md:grid-cols-2">
