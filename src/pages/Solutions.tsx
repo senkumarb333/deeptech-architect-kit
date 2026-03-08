@@ -29,9 +29,14 @@ const Solutions = () => (
                   <span key={t} className="rounded-full border border-border bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">{t}</span>
                 ))}
               </div>
-              <Button variant="link" className="p-0 h-auto text-primary" asChild>
-                <Link to="/book-consultation">Book Consultation →</Link>
-              </Button>
+              <div className="flex gap-4">
+                <Button variant="link" className="p-0 h-auto text-primary" asChild>
+                  <Link to={`/solutions/${s.id}`}>Learn More →</Link>
+                </Button>
+                <Button variant="link" className="p-0 h-auto text-muted-foreground" asChild>
+                  <Link to="/book-consultation">Book Consultation →</Link>
+                </Button>
+              </div>
             </motion.div>
           ))}
         </div>
