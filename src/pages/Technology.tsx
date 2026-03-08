@@ -1,5 +1,8 @@
 import { Cpu, Cloud, Zap, Server, Code, BarChart3 } from "lucide-react";
 import { motion } from "framer-motion";
+import PageHeader from "@/components/visuals/PageHeader";
+import TechFlowDiagram from "@/components/visuals/TechFlowDiagram";
+import techPattern from "@/assets/tech-pattern.jpg";
 
 const techAreas = [
   { icon: Cloud, title: "IoT Architecture", desc: "Scalable IoT infrastructure with edge-to-cloud connectivity using MQTT, LoRaWAN, and cellular protocols.", details: ["Multi-protocol support", "Edge computing", "Gateway management", "OTA updates"] },
@@ -12,21 +15,25 @@ const techAreas = [
 
 const Technology = () => (
   <div>
-    <section className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-16 lg:py-24">
-      <div className="container">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-primary">Technology</span>
-          <h1 className="mb-4 text-4xl font-bold text-foreground lg:text-5xl">Deep Technology Stack</h1>
-          <p className="text-lg text-muted-foreground">Our platforms are built on a foundation of AI, IoT, cloud computing, and embedded systems engineering.</p>
-        </div>
+    <PageHeader tag="Technology" title="Deep Technology Stack" description="Our platforms are built on a foundation of AI, IoT, cloud computing, and embedded systems engineering." />
+
+    {/* Architecture flow */}
+    <section className="relative overflow-hidden border-b border-border bg-card py-16">
+      <div className="absolute inset-0 opacity-5">
+        <img src={techPattern} alt="" className="h-full w-full object-cover" loading="lazy" />
+      </div>
+      <div className="container relative">
+        <h2 className="mb-8 text-center text-2xl font-bold text-foreground">Technology Architecture</h2>
+        <TechFlowDiagram />
       </div>
     </section>
+
     <section className="py-16 lg:py-24">
       <div className="container">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {techAreas.map((t, i) => (
-            <motion.div key={t.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="rounded-xl border border-border bg-card p-6 shadow-card">
-              <t.icon className="mb-4 h-10 w-10 text-primary" />
+            <motion.div key={t.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="group rounded-xl border border-border bg-card p-6 shadow-card hover:shadow-elevated hover:border-primary/30 transition-all">
+              <t.icon className="mb-4 h-10 w-10 text-primary transition-transform group-hover:scale-110" />
               <h3 className="mb-2 text-lg font-semibold text-foreground">{t.title}</h3>
               <p className="mb-4 text-sm text-muted-foreground">{t.desc}</p>
               <ul className="space-y-1.5">
