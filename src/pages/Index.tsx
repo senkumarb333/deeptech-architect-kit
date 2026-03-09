@@ -5,6 +5,8 @@ import { ArrowRight, Cpu, Cloud, Zap, BarChart3, Radio, Server } from "lucide-re
 import ParticleField from "@/components/visuals/ParticleField";
 import TechFlowDiagram from "@/components/visuals/TechFlowDiagram";
 import EcosystemDiagram from "@/components/visuals/EcosystemDiagram";
+import ImpactMetrics from "@/components/visuals/ImpactMetrics";
+import CaseStudies from "@/components/visuals/CaseStudies";
 import heroBg from "@/assets/hero-bg.jpg";
 import productSilir1000 from "@/assets/product-silir1000.jpg";
 import productSilir2000 from "@/assets/product-silir2000.jpg";
