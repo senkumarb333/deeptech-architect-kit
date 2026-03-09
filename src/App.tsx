@@ -18,6 +18,8 @@ import BookConsultation from "./pages/BookConsultation";
 import PartnerApplication from "./pages/PartnerApplication";
 import InvestorInquiry from "./pages/InvestorInquiry";
 import NotFound from "./pages/NotFound";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 const queryClient = new QueryClient();
 
