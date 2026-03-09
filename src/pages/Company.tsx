@@ -292,19 +292,19 @@ const testimonials = [
     quote: "The SILIR smart farming system transformed our mushroom cultivation process by enabling real-time monitoring and automated environmental control.",
     name: "Ramesh Kumar",
     role: "Mushroom Farmer",
-    initials: "RK",
+    img: testimonialRamesh,
   },
   {
     quote: "iYarKai's IoT platform made it possible for me to manage multiple grow rooms remotely. The data insights helped me reduce crop losses significantly.",
     name: "Priya Devi",
     role: "Agri Entrepreneur",
-    initials: "PD",
+    img: testimonialPriya,
   },
   {
     quote: "Partnering with iYarKai on their smart agriculture initiative has been rewarding. Their technology stack is genuinely built for real-world farming conditions.",
     name: "Dr. Anand Raj",
     role: "AgriTech Research Partner",
-    initials: "AR",
+    img: testimonialAnand,
   },
 ];
 
@@ -322,11 +322,51 @@ const Testimonials = () => (
               <Quote className="mb-3 h-6 w-6 text-primary/30" />
               <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">"{t.quote}"</p>
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-hero text-sm font-bold text-primary-foreground">{t.initials}</div>
+                <img src={t.img} alt={t.name} className="h-10 w-10 rounded-full object-cover" />
                 <div>
                   <p className="text-sm font-semibold text-foreground">{t.name}</p>
                   <p className="text-xs text-muted-foreground">{t.role}</p>
                 </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  </section>
+);
+
+/* ─── VIDEOS ─── */
+const videos = [
+  { title: "SILIR Smart Farming System", desc: "See how SILIR automates mushroom cultivation with AI-driven environmental control.", thumbnail: companyHero, duration: "0:45" },
+  { title: "IoT Automation Platform", desc: "How our IoT sensors and cloud platform enable real-time farm monitoring.", thumbnail: companyAbout, duration: "0:55" },
+  { title: "Farmer Success Stories", desc: "Hear from farmers who transformed their operations with iYarKai technology.", thumbnail: testimonialRamesh, duration: "1:02" },
+];
+
+const VideoSection = () => (
+  <section className="py-16 lg:py-24 bg-background">
+    <div className="container">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
+        <motion.div variants={fadeUp} className="mb-12 text-center">
+          <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-primary">Videos</span>
+          <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">See Our Technology in Action</h2>
+          <p className="mx-auto max-w-2xl text-muted-foreground">Watch how iYarKai's DeepTech platforms are transforming agriculture across India.</p>
+        </motion.div>
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+          {videos.map((v, i) => (
+            <motion.div key={i} variants={fadeUp} custom={i} whileHover={{ y: -4 }} className="group cursor-pointer overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all hover:shadow-elevated hover:border-primary/30">
+              <div className="relative h-48 overflow-hidden">
+                <img src={v.thumbnail} alt={v.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                <div className="absolute inset-0 bg-foreground/30 flex items-center justify-center transition-colors group-hover:bg-foreground/40">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/90 text-primary-foreground shadow-hero transition-transform group-hover:scale-110">
+                    <Play className="h-6 w-6 ml-0.5" fill="currentColor" />
+                  </div>
+                </div>
+                <span className="absolute bottom-2 right-2 rounded bg-foreground/70 px-2 py-0.5 text-xs font-medium text-primary-foreground">{v.duration}</span>
+              </div>
+              <div className="p-4">
+                <h3 className="mb-1 text-sm font-semibold text-foreground">{v.title}</h3>
+                <p className="text-xs text-muted-foreground">{v.desc}</p>
               </div>
             </motion.div>
           ))}
