@@ -5,10 +5,13 @@ import {
   Brain, Radio, Cog, Leaf, Sprout, Users, Handshake, Trophy,
   Newspaper, Quote, MapPin, Calendar, ArrowRight, Star, Award,
   Lightbulb, GraduationCap, Building2, Globe, Rocket, Target,
-  Eye, ChevronRight
+  Eye, ChevronRight, Play
 } from "lucide-react";
 import companyHero from "@/assets/company-hero.jpg";
 import companyAbout from "@/assets/company-about.jpg";
+import testimonialRamesh from "@/assets/testimonial-ramesh.jpg";
+import testimonialPriya from "@/assets/testimonial-priya.jpg";
+import testimonialAnand from "@/assets/testimonial-anand.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
