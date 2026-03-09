@@ -338,7 +338,6 @@ const Testimonials = () => (
 );
 
 /* ─── VIDEOS ─── */
-import { useState } from "react";
 
 const videos = [
   { title: "SILIR Smart Farming System", desc: "See how SILIR automates mushroom cultivation with AI-driven environmental control.", thumbnail: companyHero, duration: "0:45", youtubeId: "dQw4w9WgXcQ" },
