@@ -196,10 +196,11 @@ const CTASection = () => (
 const Index = () => (
   <>
     <Hero />
-    <Metrics />
+    <ImpactMetrics />
     <ProductsOverview />
     <TechPlatform />
     <EcosystemSection />
+    <CaseStudies />
     <CTASection />
   </>
 );
