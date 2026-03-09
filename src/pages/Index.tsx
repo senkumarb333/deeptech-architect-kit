@@ -153,9 +153,9 @@ const TechPlatform = () => (
   <section className="bg-muted py-20 lg:py-28">
     <div className="container">
       <div className="mx-auto mb-12 max-w-2xl text-center">
-        <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-primary">Technology Architecture</span>
-        <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">Built on Deep Technology</h2>
-        <p className="text-muted-foreground">Our platforms integrate AI, IoT edge computing, cloud infrastructure, and automation into cohesive solutions.</p>
+        <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-primary">Technology Architecture</motion.span>
+        <motion.h2 initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">Built on Deep Technology</motion.h2>
+        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="text-muted-foreground">Our platforms integrate AI, IoT edge computing, cloud infrastructure, and automation into cohesive solutions.</motion.p>
       </div>
       <TechFlowDiagram />
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -167,19 +167,24 @@ const TechPlatform = () => (
           { icon: Zap, label: "Automation Systems", desc: "Industrial-grade PLC integration and motor control" },
           { icon: BarChart3, label: "Developer APIs", desc: "REST APIs, WebSocket streams, and SDKs" },
         ].map((item, i) => (
-          <motion.div key={item.label} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
-            className="group rounded-xl border border-border bg-card p-5 shadow-card hover:shadow-elevated hover:border-primary/30 transition-all">
-            <item.icon className="mb-3 h-8 w-8 text-primary transition-transform group-hover:scale-110" />
+          <motion.div key={item.label} initial={{ opacity: 0, y: 20, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.08, type: "spring", stiffness: 150 }}
+            whileHover={{ y: -4, boxShadow: "0 12px 30px -8px rgba(31, 122, 99, 0.15)" }}
+            className="group rounded-xl border border-border bg-card p-5 shadow-card transition-colors hover:border-primary/30">
+            <motion.div whileHover={{ rotate: [0, -8, 8, 0], scale: 1.15 }} transition={{ duration: 0.4 }}>
+              <item.icon className="mb-3 h-8 w-8 text-primary" />
+            </motion.div>
             <h3 className="mb-1 text-sm font-semibold text-foreground">{item.label}</h3>
             <p className="text-xs text-muted-foreground">{item.desc}</p>
           </motion.div>
         ))}
       </div>
-      <div className="mt-10 text-center">
-        <Button variant="tech" asChild>
-          <Link to="/technology">Explore Technology</Link>
-        </Button>
-      </div>
+      <motion.div className="mt-10 text-center" whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 10 }} viewport={{ once: true }}>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} className="inline-block">
+          <Button variant="tech" asChild>
+            <Link to="/technology">Explore Technology</Link>
+          </Button>
+        </motion.div>
+      </motion.div>
     </div>
   </section>
 );
