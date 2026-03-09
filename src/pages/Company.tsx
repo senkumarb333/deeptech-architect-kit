@@ -412,6 +412,7 @@ const Company = () => (
     <Awards />
     <InTheNews />
     <Testimonials />
+    <VideoSection />
     <CTASection />
   </div>
 );
