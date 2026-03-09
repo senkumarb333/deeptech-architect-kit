@@ -106,23 +106,39 @@ const ProductsOverview = () => (
   <section className="py-20 lg:py-28">
     <div className="container">
       <div className="mx-auto mb-16 max-w-2xl text-center">
-        <span className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-primary">SILIR Ecosystem</span>
-        <h2 className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">Intelligent Platforms for Every Agricultural Need</h2>
-        <p className="text-muted-foreground">End-to-end smart farming systems powered by AI, IoT, and automation.</p>
+        <motion.span initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="mb-2 inline-block text-sm font-semibold uppercase tracking-wider text-primary">SILIR Ecosystem</motion.span>
+        <motion.h2 initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="mb-4 text-3xl font-bold text-foreground lg:text-4xl">Intelligent Platforms for Every Agricultural Need</motion.h2>
+        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="text-muted-foreground">End-to-end smart farming systems powered by AI, IoT, and automation.</motion.p>
       </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {products.map((p, i) => (
-          <motion.div key={p.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
+          <motion.div key={p.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}>
             <Link to={`/products/${p.id}`} className="group block overflow-hidden rounded-xl border border-border bg-card shadow-card transition-all hover:shadow-elevated hover:border-primary/30">
               <div className="relative h-48 overflow-hidden">
-                <img src={p.img} alt={p.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                <motion.img
+                  src={p.img}
+                  alt={p.name}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
               </div>
               <div className="p-5">
                 <h3 className="mb-1 text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{p.name}</h3>
                 <p className="text-sm text-muted-foreground">{p.desc}</p>
-                <div className="mt-3 flex items-center text-sm font-medium text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                <motion.div
+                  className="mt-3 flex items-center text-sm font-medium text-primary"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileHover={{ x: 5 }}
+                  animate={{ opacity: 0 }}
+                  whileInView={{ opacity: 0 }}
+                >
                   Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                </motion.div>
+                <div className="mt-3 flex items-center text-sm font-medium text-primary opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
+                  Learn more <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
             </Link>
