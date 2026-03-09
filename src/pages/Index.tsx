@@ -247,9 +247,14 @@ const Index = () => (
     <Hero />
     <ImpactMetrics />
     <ProductsOverview />
+    <LeadCaptureSection />
     <TechPlatform />
     <EcosystemSection />
+    <PartnersSection />
+    <AwardsSection />
     <CaseStudies />
+    <CustomerSupportSection />
+    <SocialFeedSection />
     <CTASection />
   </>
 );
