@@ -128,15 +128,6 @@ const ProductsOverview = () => (
               <div className="p-5">
                 <h3 className="mb-1 text-lg font-semibold text-foreground group-hover:text-primary transition-colors">{p.name}</h3>
                 <p className="text-sm text-muted-foreground">{p.desc}</p>
-                <motion.div
-                  className="mt-3 flex items-center text-sm font-medium text-primary"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileHover={{ x: 5 }}
-                  animate={{ opacity: 0 }}
-                  whileInView={{ opacity: 0 }}
-                >
-                  Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                </motion.div>
                 <div className="mt-3 flex items-center text-sm font-medium text-primary opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
                   Learn more <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
