@@ -7,6 +7,11 @@ import TechFlowDiagram from "@/components/visuals/TechFlowDiagram";
 import EcosystemDiagram from "@/components/visuals/EcosystemDiagram";
 import ImpactMetrics from "@/components/visuals/ImpactMetrics";
 import CaseStudies from "@/components/visuals/CaseStudies";
+import PartnersSection from "@/components/sections/PartnersSection";
+import AwardsSection from "@/components/sections/AwardsSection";
+import SocialFeedSection from "@/components/sections/SocialFeedSection";
+import CustomerSupportSection from "@/components/sections/CustomerSupportSection";
+import LeadCaptureSection from "@/components/sections/LeadCaptureSection";
 import heroBg from "@/assets/hero-bg.jpg";
 import productSilir1000 from "@/assets/product-silir1000.jpg";
 import productSilir2000 from "@/assets/product-silir2000.jpg";
@@ -242,9 +247,14 @@ const Index = () => (
     <Hero />
     <ImpactMetrics />
     <ProductsOverview />
+    <LeadCaptureSection />
     <TechPlatform />
     <EcosystemSection />
+    <PartnersSection />
+    <AwardsSection />
     <CaseStudies />
+    <CustomerSupportSection />
+    <SocialFeedSection />
     <CTASection />
   </>
 );
