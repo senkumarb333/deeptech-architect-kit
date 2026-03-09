@@ -63,27 +63,7 @@ const Hero = () => (
   </section>
 );
 
-const metrics = [
-  { value: "6+", label: "SILIR Platforms" },
-  { value: "5+", label: "Core Technologies" },
-  { value: "6", label: "Industry Verticals" },
-  { value: "1", label: "IoT Cloud Platform" },
-];
 
-const Metrics = () => (
-  <section className="border-y border-border bg-card py-12">
-    <div className="container">
-      <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-        {metrics.map((m, i) => (
-          <motion.div key={m.label} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="text-center">
-            <div className="text-3xl font-bold text-primary lg:text-4xl">{m.value}</div>
-            <div className="mt-1 text-sm text-muted-foreground">{m.label}</div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
 const products = [
   { id: "silir1000", name: "SILIR1000", desc: "Smart Mushroom Cultivation System", img: productSilir1000 },
