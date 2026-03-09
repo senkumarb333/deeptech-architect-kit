@@ -18,6 +18,8 @@ import BookConsultation from "./pages/BookConsultation";
 import PartnerApplication from "./pages/PartnerApplication";
 import InvestorInquiry from "./pages/InvestorInquiry";
 import NotFound from "./pages/NotFound";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,8 @@ const App = () => (
             <Route path="/book-consultation" element={<BookConsultation />} />
             <Route path="/partner-application" element={<PartnerApplication />} />
             <Route path="/investor-inquiry" element={<InvestorInquiry />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
