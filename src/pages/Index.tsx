@@ -206,18 +206,42 @@ const CTASection = () => (
   <section className="relative overflow-hidden bg-gradient-hero py-20 lg:py-24">
     <ParticleField particleCount={25} color="#ffffff" className="opacity-20" />
     <div className="container relative z-10 text-center">
-      <h2 className="mb-4 text-3xl font-bold text-primary-foreground lg:text-4xl">Ready to Transform Your Agricultural Operations?</h2>
-      <p className="mx-auto mb-8 max-w-xl text-primary-foreground/80">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ type: "spring", stiffness: 80 }}
+        className="mb-4 text-3xl font-bold text-primary-foreground lg:text-4xl"
+      >
+        Ready to Transform Your Agricultural Operations?
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+        className="mx-auto mb-8 max-w-xl text-primary-foreground/80"
+      >
         Connect with our team to explore how iYarKai's DeepTech platforms can drive efficiency, sustainability, and growth.
-      </p>
-      <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <Button variant="hero-outline" size="xl" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-          <Link to="/request-demo">Request Demo</Link>
-        </Button>
-        <Button variant="ghost" size="xl" className="text-primary-foreground hover:bg-primary-foreground/10" asChild>
-          <Link to="/book-consultation">Book Consultation</Link>
-        </Button>
-      </div>
+      </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3 }}
+        className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+      >
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+          <Button variant="hero-outline" size="xl" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
+            <Link to="/request-demo">Request Demo</Link>
+          </Button>
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+          <Button variant="ghost" size="xl" className="text-primary-foreground hover:bg-primary-foreground/10" asChild>
+            <Link to="/book-consultation">Book Consultation</Link>
+          </Button>
+        </motion.div>
+      </motion.div>
     </div>
   </section>
 );
