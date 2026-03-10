@@ -12,90 +12,13 @@ import AwardsSection from "@/components/sections/AwardsSection";
 import SocialFeedSection from "@/components/sections/SocialFeedSection";
 import CustomerSupportSection from "@/components/sections/CustomerSupportSection";
 import LeadCaptureSection from "@/components/sections/LeadCaptureSection";
-import heroBg from "@/assets/hero-bg.jpg";
+import Hero from "@/components/hero/HeroSection";
 import productSilir1000 from "@/assets/product-silir1000.jpg";
 import productSilir2000 from "@/assets/product-silir2000.jpg";
 import productSilir3000 from "@/assets/product-silir3000.jpg";
 import productSilir4000 from "@/assets/product-silir4000.jpg";
 import productSilir5000 from "@/assets/product-silir5000.jpg";
 import productKithub from "@/assets/product-kithub.jpg";
-
-const floatingVariants = {
-  animate: (i: number) => ({
-    y: [0, -8, 0],
-    transition: { duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut" as const, delay: i * 0.3 },
-  }),
-};
-
-const Hero = () => (
-  <section className="relative overflow-hidden bg-foreground py-20 lg:py-32">
-    <div className="absolute inset-0">
-      <img src={heroBg} alt="" className="h-full w-full object-cover opacity-40" loading="eager" />
-      <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-foreground/40" />
-    </div>
-    <ParticleField className="z-10 opacity-60" particleCount={40} color="#1F7A63" />
-    <div className="container relative z-20">
-      <div className="mx-auto max-w-4xl text-center">
-        <motion.div initial={{ opacity: 0, y: 20, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.6, type: "spring", stiffness: 120 }}>
-          <span className="mb-4 inline-block rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
-            DeepTech Innovation
-          </span>
-        </motion.div>
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1, type: "spring", stiffness: 80 }} className="mb-6 text-4xl font-bold leading-tight tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl">
-          Engineering Intelligent Infrastructure for{" "}
-          <motion.span
-            className="text-gradient-primary inline-block"
-            initial={{ backgroundSize: "0% 100%" }}
-            animate={{ backgroundSize: "100% 100%" }}
-            transition={{ duration: 1.2, delay: 0.6 }}
-          >
-            Sustainable Agriculture
-          </motion.span>
-        </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }} className="mx-auto mb-10 max-w-2xl text-lg text-primary-foreground/70 lg:text-xl">
-          AI, IoT and automation platforms powering the future of agriculture and food systems.
-        </motion.p>
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }} className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-            <Button variant="hero" size="xl" asChild>
-              <Link to="/request-demo">Request Demo <ArrowRight className="ml-1 h-5 w-5" /></Link>
-            </Button>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
-            <Button variant="hero-outline" size="xl" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-              <Link to="/products">Explore Products</Link>
-            </Button>
-          </motion.div>
-        </motion.div>
-      </div>
-
-      <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className="mt-20 grid grid-cols-2 gap-4 sm:grid-cols-4 mx-auto max-w-3xl">
-        {[
-          { icon: Cpu, label: "Artificial Intelligence", color: "text-primary" },
-          { icon: Cloud, label: "IoT & Cloud", color: "text-tech-blue" },
-          { icon: Zap, label: "Automation Systems", color: "text-accent" },
-          { icon: BarChart3, label: "Data Intelligence", color: "text-primary" },
-        ].map((item, i) => (
-          <motion.div
-            key={item.label}
-            custom={i}
-            variants={floatingVariants}
-            animate="animate"
-            whileHover={{ scale: 1.08, borderColor: "hsl(162 59% 30% / 0.4)" }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="flex flex-col items-center gap-2 rounded-xl border border-primary-foreground/10 bg-primary-foreground/5 backdrop-blur-sm p-4 cursor-default"
-          >
-            <motion.div whileHover={{ rotate: [0, -10, 10, 0] }} transition={{ duration: 0.5 }}>
-              <item.icon className={`h-8 w-8 ${item.color}`} />
-            </motion.div>
-            <span className="text-xs font-medium text-primary-foreground/70 text-center">{item.label}</span>
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
-  </section>
-);
-
 
 
 const products = [
