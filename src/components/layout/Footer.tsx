@@ -80,6 +80,20 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               DeepTech Innovation & Infrastructure for intelligent agriculture and food ecosystems.
             </p>
+            <div className="flex items-center gap-3 mb-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-border text-muted-foreground transition-all hover:border-primary/50 hover:text-primary hover:scale-110"
+                >
+                  <social.icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
             <p className="text-xs text-muted-foreground">Chennai, India</p>
           </div>
 
