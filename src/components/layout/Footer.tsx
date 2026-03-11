@@ -1,4 +1,13 @@
 import { Link } from "react-router-dom";
+import { Linkedin, Youtube, Twitter, Instagram, Facebook } from "lucide-react";
+
+const socialLinks = [
+  { icon: Linkedin, url: "https://www.linkedin.com/company/iyarkai/", label: "LinkedIn" },
+  { icon: Youtube, url: "https://www.youtube.com/@iyarkaitechlab8827", label: "YouTube" },
+  { icon: Twitter, url: "https://x.com/iyarkai_lab", label: "X (Twitter)" },
+  { icon: Instagram, url: "https://www.instagram.com/iyarkaitechlab/", label: "Instagram" },
+  { icon: Facebook, url: "https://facebook.com/iyarkaiTechLab", label: "Facebook" },
+];
 
 const footerSections = [
   {
@@ -71,6 +80,20 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               DeepTech Innovation & Infrastructure for intelligent agriculture and food ecosystems.
             </p>
+            <div className="flex items-center gap-3 mb-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-border text-muted-foreground transition-all hover:border-primary/50 hover:text-primary hover:scale-110"
+                >
+                  <social.icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
             <p className="text-xs text-muted-foreground">Chennai, India</p>
           </div>
 
