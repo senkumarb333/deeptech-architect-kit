@@ -1,4 +1,13 @@
 import { Link } from "react-router-dom";
+import { Linkedin, Youtube, Twitter, Instagram, Facebook } from "lucide-react";
+
+const socialLinks = [
+  { icon: Linkedin, url: "https://www.linkedin.com/company/iyarkai/", label: "LinkedIn" },
+  { icon: Youtube, url: "https://www.youtube.com/@iyarkaitechlab8827", label: "YouTube" },
+  { icon: Twitter, url: "https://x.com/iyarkai_lab", label: "X (Twitter)" },
+  { icon: Instagram, url: "https://www.instagram.com/iyarkaitechlab/", label: "Instagram" },
+  { icon: Facebook, url: "https://facebook.com/iyarkaiTechLab", label: "Facebook" },
+];
 
 const footerSections = [
   {
