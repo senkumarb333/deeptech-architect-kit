@@ -37,7 +37,7 @@ const TrustSection = () => (
         className="text-center mb-10"
       >
         <h2 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-2">
-          Trusted by Innovators and Research Partners
+          Trusted by Innovators in Agriculture Technology
         </h2>
       </motion.div>
 

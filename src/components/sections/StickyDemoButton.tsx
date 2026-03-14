@@ -10,11 +10,11 @@ const StickyDemoButton = () => (
     className="fixed bottom-6 right-6 z-50"
   >
     <Link
-      to="/request-demo"
+      to="/book-consultation"
       className="flex items-center gap-2 rounded-full bg-gradient-hero px-5 py-3 text-sm font-semibold text-primary-foreground shadow-hero transition-transform hover:scale-105 active:scale-95"
     >
       <CalendarCheck className="h-4 w-4" />
-      Book Demo
+      Start Pilot
     </Link>
   </motion.div>
 );

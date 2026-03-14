@@ -134,7 +134,7 @@ const Navbar = () => {
           </nav>
           <div className="mt-4">
             <Button variant="hero" size="lg" className="w-full" asChild>
-              <Link to="/request-demo" onClick={() => setMobileOpen(false)}>Request Demo</Link>
+              <Link to="/book-consultation" onClick={() => setMobileOpen(false)}>Start Pilot</Link>
             </Button>
           </div>
         </div>
