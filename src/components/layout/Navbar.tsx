@@ -92,7 +92,7 @@ const Navbar = () => {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Button variant="hero" size="default" asChild>
-            <Link to="/request-demo">Request Demo</Link>
+            <Link to="/book-consultation">Start Pilot</Link>
           </Button>
         </div>
 
