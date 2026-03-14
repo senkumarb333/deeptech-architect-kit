@@ -82,7 +82,7 @@ const SolutionCardsSection = () => (
             <div className="mt-auto">
               <Button variant="outline" className="w-full group-hover:border-primary group-hover:text-primary" asChild>
                 <Link to={s.link}>
-                  Explore Solution <ArrowRight className="ml-1 h-4 w-4" />
+                  Start Pilot <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </Button>
             </div>

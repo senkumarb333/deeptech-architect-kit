@@ -105,7 +105,7 @@ const LeadFormSection = () => {
               />
             </div>
             <Button variant="hero" size="lg" type="submit" className="w-full">
-              Request Consultation <ArrowRight className="ml-1 h-5 w-5" />
+              Start Pilot <ArrowRight className="ml-1 h-5 w-5" />
             </Button>
           </motion.form>
         </div>

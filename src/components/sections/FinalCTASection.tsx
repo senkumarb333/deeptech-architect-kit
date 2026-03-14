@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, Rocket } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 
 const FinalCTASection = () => (
   <section className="relative overflow-hidden bg-gradient-hero py-20 lg:py-28">
@@ -31,13 +31,13 @@ const FinalCTASection = () => (
         className="flex flex-col items-center justify-center gap-4 sm:flex-row"
       >
         <Button variant="hero-outline" size="xl" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-          <Link to="/request-demo">
-            Book Demo <ArrowRight className="ml-1 h-5 w-5" />
+          <Link to="/book-consultation">
+            Start Pilot <ArrowRight className="ml-1 h-5 w-5" />
           </Link>
         </Button>
         <Button variant="ghost" size="xl" className="text-primary-foreground hover:bg-primary-foreground/10" asChild>
-          <Link to="/book-consultation">
-            <Rocket className="mr-1 h-5 w-5" /> Request Pilot
+          <Link to="/request-demo">
+            Book Demo
           </Link>
         </Button>
         <Button variant="ghost" size="xl" className="text-primary-foreground hover:bg-primary-foreground/10" asChild>

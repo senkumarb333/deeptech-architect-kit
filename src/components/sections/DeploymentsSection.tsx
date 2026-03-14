@@ -90,7 +90,7 @@ const DeploymentsSection = () => (
 
             <Button variant="ghost" className="w-full justify-start text-primary p-0 h-auto" asChild>
               <Link to={d.link}>
-                View Case Study <ArrowRight className="ml-1 h-4 w-4" />
+                View Deployment <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
           </motion.div>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroSmartfarm from "@/assets/hero-smartfarm.jpg";
 import TechGridOverlay from "./TechGridOverlay";
 
@@ -50,7 +50,7 @@ const Hero = () => (
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mx-auto mb-10 max-w-2xl text-lg text-primary-foreground/70 lg:text-xl leading-relaxed"
         >
-          Deploy smart farming systems that increase yield, reduce water usage, and deliver real-time farm intelligence.
+          Deploy real-time crop intelligence, automated irrigation, and smart farming systems powered by AI and IoT.
         </motion.p>
 
         <motion.div
@@ -60,8 +60,8 @@ const Hero = () => (
           className="flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <Button variant="hero" size="xl" asChild>
-            <Link to="/request-demo">
-              Book Demo <ArrowRight className="ml-1 h-5 w-5" />
+            <Link to="/book-consultation">
+              Start Pilot <ArrowRight className="ml-1 h-5 w-5" />
             </Link>
           </Button>
           <Button
@@ -70,8 +70,8 @@ const Hero = () => (
             className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 backdrop-blur-sm"
             asChild
           >
-            <Link to="/book-consultation">
-              <Play className="mr-1 h-4 w-4" /> Start Pilot Deployment
+            <Link to="/request-demo">
+              Book Demo
             </Link>
           </Button>
         </motion.div>
