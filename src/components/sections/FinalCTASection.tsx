@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Phone, Rocket } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 
 const FinalCTASection = () => (
   <section className="relative overflow-hidden bg-gradient-hero py-20 lg:py-28">
