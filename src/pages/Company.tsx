@@ -42,7 +42,7 @@ const Overview = () => (
           iYarKai Tech Lab is a DeepTech AgriTech innovation company developing AI-driven IoT automation platforms for agriculture and food systems. Our mission is to empower farmers, agri entrepreneurs, and rural communities with intelligent technology that increases productivity, reduces manual effort, and enables sustainable farming practices.
         </motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35 }} className="flex flex-wrap gap-3">
-          <Button variant="hero" size="lg" asChild><Link to="/request-demo">Request Demo</Link></Button>
+          <Button variant="hero" size="lg" asChild><Link to="/book-consultation">Start Pilot <ArrowRight className="ml-1 h-4 w-4" /></Link></Button>
           <Button size="lg" className="border-2 border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 font-semibold" asChild><Link to="/technology">Explore Technology</Link></Button>
         </motion.div>
       </div>
