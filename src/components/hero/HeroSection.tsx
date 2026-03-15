@@ -50,7 +50,7 @@ const Hero = () => (
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mx-auto mb-10 max-w-2xl text-lg text-primary-foreground/70 lg:text-xl leading-relaxed"
         >
-          Deploy real-time crop intelligence, automated irrigation, and smart farming systems powered by AI and IoT.
+          Deploy intelligent farming systems with real-time crop intelligence, automated irrigation, and smart environmental monitoring.
         </motion.p>
 
         <motion.div

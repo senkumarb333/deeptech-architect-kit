@@ -11,6 +11,7 @@ const LeadFormSection = () => {
     name: "",
     organization: "",
     email: "",
+    phone: "",
     location: "",
     requirement: "",
   });
