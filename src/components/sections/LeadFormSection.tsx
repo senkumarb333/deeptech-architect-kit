@@ -11,6 +11,7 @@ const LeadFormSection = () => {
     name: "",
     organization: "",
     email: "",
+    phone: "",
     location: "",
     requirement: "",
   });
@@ -26,7 +27,7 @@ const LeadFormSection = () => {
       return;
     }
     toast.success("Thank you! Our team will contact you within 24 hours.");
-    setForm({ name: "", organization: "", email: "", location: "", requirement: "" });
+    setForm({ name: "", organization: "", email: "", phone: "", location: "", requirement: "" });
   };
 
   return (
@@ -87,13 +88,22 @@ const LeadFormSection = () => {
                 />
               </div>
               <div>
-                <label className="mb-1.5 block text-sm font-medium text-foreground">Location</label>
+                <label className="mb-1.5 block text-sm font-medium text-foreground">Phone</label>
                 <Input
-                  value={form.location}
-                  onChange={(e) => setForm({ ...form, location: e.target.value })}
-                  placeholder="City, State"
+                  type="tel"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  placeholder="+91 98765 43210"
                 />
               </div>
+            </div>
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-foreground">Location</label>
+              <Input
+                value={form.location}
+                onChange={(e) => setForm({ ...form, location: e.target.value })}
+                placeholder="City, State"
+              />
             </div>
             <div>
               <label className="mb-1.5 block text-sm font-medium text-foreground">Project Requirement</label>
