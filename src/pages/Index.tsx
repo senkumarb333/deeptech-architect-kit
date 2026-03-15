@@ -3,7 +3,9 @@ import TrustSection from "@/components/sections/TrustSection";
 import FlagshipProductSection from "@/components/sections/FlagshipProductSection";
 import SolutionCardsSection from "@/components/sections/SolutionCardsSection";
 import ChallengesSection from "@/components/sections/ChallengesSection";
+import ReadinessAssessment from "@/components/sections/ReadinessAssessment";
 import DeploymentsSection from "@/components/sections/DeploymentsSection";
+import DeploymentMapSection from "@/components/sections/DeploymentMapSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import IndustriesSection from "@/components/sections/IndustriesSection";
 import TrainingSection from "@/components/sections/TrainingSection";
@@ -20,7 +22,9 @@ const Index = () => (
     <FlagshipProductSection />
     <SolutionCardsSection />
     <ChallengesSection />
+    <ReadinessAssessment />
     <DeploymentsSection />
+    <DeploymentMapSection />
     <TestimonialsSection />
     <IndustriesSection />
     <TrainingSection />

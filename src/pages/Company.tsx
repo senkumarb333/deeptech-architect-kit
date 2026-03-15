@@ -418,9 +418,9 @@ const CTASection = () => (
           Join iYarKai Tech Lab in transforming agriculture through AI, IoT, and intelligent automation.
         </motion.p>
         <motion.div variants={fadeUp} custom={2} className="flex flex-wrap justify-center gap-4">
-          <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold" asChild><Link to="/request-demo">Request Demo <ArrowRight className="ml-1 h-4 w-4" /></Link></Button>
-          <Button size="lg" className="border-2 border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 font-semibold" asChild><Link to="/technology">Explore Technology</Link></Button>
-          <Button size="lg" className="border-2 border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 font-semibold" asChild><Link to="/partner-application">Partner With ITL</Link></Button>
+          <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold" asChild><Link to="/book-consultation">Start Pilot <ArrowRight className="ml-1 h-4 w-4" /></Link></Button>
+          <Button size="lg" className="border-2 border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 font-semibold" asChild><Link to="/request-demo">Book Demo</Link></Button>
+          <Button size="lg" className="border-2 border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 font-semibold" asChild><Link to="/book-consultation">Request Consultation</Link></Button>
         </motion.div>
       </motion.div>
     </div>
