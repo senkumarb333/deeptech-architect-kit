@@ -31,18 +31,18 @@ const FinalCTASection = () => (
         className="flex flex-col items-center justify-center gap-4 sm:flex-row"
       >
         <Button variant="hero-outline" size="xl" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary" asChild>
-          <Link to="/book-consultation">
-            Start Pilot <ArrowRight className="ml-1 h-5 w-5" />
-          </Link>
-        </Button>
-        <Button variant="ghost" size="xl" className="text-primary-foreground hover:bg-primary-foreground/10" asChild>
-          <Link to="/request-demo">
-            Book Demo
+          <Link to="/products/silir1000">
+            Get Silir Details <ArrowRight className="ml-1 h-5 w-5" />
           </Link>
         </Button>
         <Button variant="ghost" size="xl" className="text-primary-foreground hover:bg-primary-foreground/10" asChild>
           <Link to="/book-consultation">
-            <Phone className="mr-1 h-5 w-5" /> Contact Sales
+            Book Workshop
+          </Link>
+        </Button>
+        <Button variant="ghost" size="xl" className="text-primary-foreground hover:bg-primary-foreground/10" asChild>
+          <Link to="/products/kithub">
+            Explore KitHub
           </Link>
         </Button>
       </motion.div>
