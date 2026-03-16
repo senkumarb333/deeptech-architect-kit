@@ -13,8 +13,8 @@ const partners = [
 ];
 
 const awards = [
-  { icon: Trophy, title: "AgriTech Innovation Award", org: "National Startup Awards 2024" },
-  { icon: Award, title: "AI Research Grant Recipient", org: "Dept. of Science & Technology" },
+  { icon: Trophy, title: "NASSCOM AI GameChanger Award", org: "NASSCOM" },
+  { icon: Award, title: "World Bank VKP Innovation Program", org: "World Bank" },
   { icon: Star, title: "Best DeepTech Startup", org: "TiE Chennai 2024" },
   { icon: GraduationCap, title: "University Research Partner", org: "TNAU Collaboration" },
 ];
