@@ -2,18 +2,15 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { ArrowRight, Rocket } from "lucide-react";
 
 const LeadFormSection = () => {
   const [form, setForm] = useState({
     name: "",
-    organization: "",
     email: "",
     phone: "",
-    location: "",
-    requirement: "",
+    interest: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -27,7 +24,7 @@ const LeadFormSection = () => {
       return;
     }
     toast.success("Thank you! Our team will contact you within 24 hours.");
-    setForm({ name: "", organization: "", email: "", phone: "", location: "", requirement: "" });
+    setForm({ name: "", email: "", phone: "", interest: "" });
   };
 
   return (
@@ -44,10 +41,10 @@ const LeadFormSection = () => {
               <Rocket className="h-7 w-7 text-primary" />
             </div>
             <h2 className="mb-3 text-3xl font-bold text-foreground lg:text-4xl">
-              Start Your Smart Agriculture Pilot
+              Start Your Smart Agriculture or Innovation Journey
             </h2>
             <p className="text-muted-foreground">
-              Tell us about your project and our team will design a custom pilot deployment plan.
+              Tell us your interest and our team will get back to you with details.
             </p>
           </motion.div>
 
@@ -59,23 +56,13 @@ const LeadFormSection = () => {
             transition={{ delay: 0.1 }}
             className="rounded-2xl border border-border bg-card p-8 shadow-elevated space-y-5"
           >
-            <div className="grid gap-5 sm:grid-cols-2">
-              <div>
-                <label className="mb-1.5 block text-sm font-medium text-foreground">Name *</label>
-                <Input
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="Your full name"
-                />
-              </div>
-              <div>
-                <label className="mb-1.5 block text-sm font-medium text-foreground">Organization</label>
-                <Input
-                  value={form.organization}
-                  onChange={(e) => setForm({ ...form, organization: e.target.value })}
-                  placeholder="Company or farm name"
-                />
-              </div>
+            <div>
+              <label className="mb-1.5 block text-sm font-medium text-foreground">Name *</label>
+              <Input
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                placeholder="Your full name"
+              />
             </div>
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
@@ -98,24 +85,20 @@ const LeadFormSection = () => {
               </div>
             </div>
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-foreground">Location</label>
-              <Input
-                value={form.location}
-                onChange={(e) => setForm({ ...form, location: e.target.value })}
-                placeholder="City, State"
-              />
-            </div>
-            <div>
-              <label className="mb-1.5 block text-sm font-medium text-foreground">Project Requirement</label>
-              <Textarea
-                value={form.requirement}
-                onChange={(e) => setForm({ ...form, requirement: e.target.value })}
-                placeholder="Describe your agriculture challenge or project needs..."
-                rows={4}
-              />
+              <label className="mb-1.5 block text-sm font-medium text-foreground">Interest *</label>
+              <select
+                value={form.interest}
+                onChange={(e) => setForm({ ...form, interest: e.target.value })}
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <option value="">Select your interest</option>
+                <option value="Silir Smart Mushroom System">Silir Smart Mushroom System</option>
+                <option value="Design Thinking Workshop">Design Thinking Workshop</option>
+                <option value="KitHub Platform">KitHub Platform</option>
+              </select>
             </div>
             <Button variant="hero" size="lg" type="submit" className="w-full">
-              Start Pilot <ArrowRight className="ml-1 h-5 w-5" />
+              Get Details <ArrowRight className="ml-1 h-5 w-5" />
             </Button>
           </motion.form>
         </div>

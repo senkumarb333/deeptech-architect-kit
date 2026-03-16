@@ -11,23 +11,20 @@ const socialLinks = [
 
 const footerSections = [
   {
-    title: "Products",
+    title: "Silir Systems",
     links: [
-      { label: "SILIR1000", path: "/products/silir1000" },
-      { label: "SILIR2000", path: "/products/silir2000" },
-      { label: "SILIR3000", path: "/products/silir3000" },
-      { label: "SILIR4000", path: "/products/silir4000" },
-      { label: "SILIR5000", path: "/products/silir5000" },
-      { label: "KitHub", path: "/products/kithub" },
+      { label: "SILIR1000 – Smart Mushroom", path: "/products/silir1000" },
+      { label: "SILIR2000 – Farm Automation", path: "/products/silir2000" },
+      { label: "SILIR3000 – Commercial Farm", path: "/products/silir3000" },
+      { label: "SILIR4000 – Industrial Scale", path: "/products/silir4000" },
+      { label: "SILIR5000 – Agri Ecosystem", path: "/products/silir5000" },
     ],
   },
   {
-    title: "Solutions",
+    title: "Platforms",
     links: [
-      { label: "Mushroom Automation", path: "/solutions/mushroom-automation" },
-      { label: "Poultry Automation", path: "/solutions/poultry-automation" },
-      { label: "Smart Irrigation", path: "/solutions/smart-irrigation" },
-      { label: "Polyhouse Automation", path: "/solutions/polyhouse-automation" },
+      { label: "KitHub DeepTech", path: "/products/kithub" },
+      { label: "Design Thinking Workshops", path: "/book-consultation" },
       { label: "Technology Consulting", path: "/solutions/technology-consulting" },
     ],
   },
@@ -35,8 +32,8 @@ const footerSections = [
     title: "Company",
     links: [
       { label: "About ITL", path: "/company" },
-      { label: "Leadership", path: "/company#leadership" },
-      { label: "Careers", path: "/company#careers" },
+      { label: "Impact", path: "/company#impact" },
+      { label: "Blog", path: "/resources#blog" },
       { label: "Contact", path: "/company#contact" },
       { label: "Partners", path: "/partner-application" },
     ],
@@ -45,9 +42,9 @@ const footerSections = [
     title: "Resources",
     links: [
       { label: "Case Studies", path: "/resources" },
-      { label: "Blog", path: "/resources#blog" },
       { label: "Knowledge Hub", path: "/resources#knowledge" },
       { label: "Media & Press", path: "/resources#press" },
+      { label: "Technology", path: "/technology" },
     ],
   },
 ];
