@@ -9,11 +9,9 @@ import { ArrowRight, Rocket } from "lucide-react";
 const LeadFormSection = () => {
   const [form, setForm] = useState({
     name: "",
-    organization: "",
     email: "",
     phone: "",
-    location: "",
-    requirement: "",
+    interest: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
