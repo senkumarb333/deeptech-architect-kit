@@ -42,10 +42,10 @@ const LeadFormSection = () => {
               <Rocket className="h-7 w-7 text-primary" />
             </div>
             <h2 className="mb-3 text-3xl font-bold text-foreground lg:text-4xl">
-              Start Your Smart Agriculture Pilot
+              Start Your Smart Agriculture or Innovation Journey
             </h2>
             <p className="text-muted-foreground">
-              Tell us about your project and our team will design a custom pilot deployment plan.
+              Tell us your interest and our team will get back to you with details.
             </p>
           </motion.div>
 
