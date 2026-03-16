@@ -25,7 +25,7 @@ const LeadFormSection = () => {
       return;
     }
     toast.success("Thank you! Our team will contact you within 24 hours.");
-    setForm({ name: "", organization: "", email: "", phone: "", location: "", requirement: "" });
+    setForm({ name: "", email: "", phone: "", interest: "" });
   };
 
   return (
