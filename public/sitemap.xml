@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://deeptech-architect-kit.lovable.app/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/products</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/products/silir-1000</loc><priority>0.9</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/products/silir-2000</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/products/silir-3000</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/products/silir-5000</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/products/kithub</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/products/design-thinking</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/solutions</loc><priority>0.9</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/solutions/mushroom-automation</loc><priority>0.9</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/solutions/poultry-automation</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/solutions/postharvest</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/solutions/irrigation</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/solutions/polyhouse</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/solutions/consulting</loc><priority>0.7</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/solutions/design-thinking</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/solutions/innovation-coaching</loc><priority>0.7</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/technology</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/industries</loc><priority>0.8</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/resources</loc><priority>0.7</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/company</loc><priority>0.7</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/privacy</loc><priority>0.3</priority></url>
+  <url><loc>https://deeptech-architect-kit.lovable.app/terms</loc><priority>0.3</priority></url>
+</urlset>
