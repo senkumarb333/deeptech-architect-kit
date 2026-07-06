@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,8 +10,17 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import { Layers } from "lucide-react";
 
+// Only allow same-origin relative paths as post-login return targets.
+function safeNext(raw: string | null): string {
+  if (!raw) return "/app";
+  if (!raw.startsWith("/") || raw.startsWith("//")) return "/app";
+  return raw;
+}
+
 export default function Login() {
   const navigate = useNavigate();
+  const [params] = useSearchParams();
+  const next = safeNext(params.get("next"));
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -22,7 +31,7 @@ export default function Login() {
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setBusy(false);
     if (error) return toast.error(error.message);
-    navigate("/app");
+    navigate(next);
   };
 
   const signUp = async () => {
@@ -30,19 +39,19 @@ export default function Login() {
     const { error } = await supabase.auth.signUp({
       email, password,
       options: {
-        emailRedirectTo: `${window.location.origin}/app`,
+        emailRedirectTo: `${window.location.origin}${next}`,
         data: { full_name: name },
       },
     });
     setBusy(false);
     if (error) return toast.error(error.message);
     toast.success("Account created. You're signed in.");
-    navigate("/app");
+    navigate(next);
   };
 
   const google = async () => {
     const res = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: `${window.location.origin}/app`,
+      redirect_uri: `${window.location.origin}${next}`,
     });
     if (res.error) toast.error(String(res.error));
   };
