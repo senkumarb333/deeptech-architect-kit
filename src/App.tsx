@@ -34,6 +34,7 @@ import ApplicationDetail from "./app/pages/ApplicationDetail";
 import Capabilities from "./app/pages/Capabilities";
 import AuditLog from "./app/pages/AuditLog";
 import Placeholder from "./app/pages/Placeholder";
+import OAuthConsent from "./app/pages/OAuthConsent";
 
 const queryClient = new QueryClient();
 
@@ -72,6 +73,7 @@ const App = () => {
             <RouteTracker />
             <Routes>
               <Route path="/app/login" element={<Login />} />
+              <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
               <Route path="/app" element={<AppShell />}>
                 <Route index element={<Dashboard />} />
                 <Route path="search" element={<Placeholder title="Enterprise Search" />} />
