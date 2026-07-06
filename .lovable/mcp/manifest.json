@@ -1,0 +1,159 @@
+{
+  "version": 1,
+  "sdk_version": "0.20.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://hlnkhwdmimevnkqyiasr.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "iyarkai-eaos-mcp",
+      "version": "0.1.0",
+      "title": "iYarKai EAOS"
+    },
+    "tools": [
+      {
+        "name": "list_applications",
+        "title": "List applications",
+        "description": "List applications in the signed-in user's accessible workspaces.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "default": 50,
+              "description": "Max rows to return."
+            },
+            "search": {
+              "type": "string",
+              "description": "Optional name substring filter."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_capabilities",
+        "title": "List business capabilities",
+        "description": "List business capabilities in the signed-in user's accessible workspaces.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "default": 50,
+              "description": "Max rows to return."
+            },
+            "search": {
+              "type": "string",
+              "description": "Optional name substring filter."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "create_application",
+        "title": "Create application",
+        "description": "Create a new application in a workspace the signed-in user can write to. tenant_id must be a workspace the user belongs to.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "tenant_id": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Tenant/workspace id the application belongs to."
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "description": "Application display name."
+            },
+            "description": {
+              "type": "string",
+              "maxLength": 4000,
+              "description": "Short description."
+            },
+            "lifecycle": {
+              "type": "string",
+              "enum": [
+                "proposed",
+                "planned",
+                "active",
+                "deprecated",
+                "retired"
+              ],
+              "default": "active",
+              "description": "Lifecycle stage."
+            }
+          },
+          "required": [
+            "tenant_id",
+            "name"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_audit_log",
+        "title": "List audit log entries",
+        "description": "Read recent audit log entries the signed-in user is allowed to see.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "entity": {
+              "type": "string",
+              "description": "Optional entity/table name filter (e.g. 'applications')."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "default": 50,
+              "description": "Max rows to return."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
