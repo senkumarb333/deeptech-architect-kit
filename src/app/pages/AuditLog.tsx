@@ -5,10 +5,14 @@ import { EntityHeader } from "@/app/components/EntityHeader";
 import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { EmptyState } from "@/app/components/EmptyState";
+import { TableRowsSkeleton } from "@/app/components/Skeletons";
+import { ApiError } from "@/app/components/ErrorBoundary";
+import { ScrollText } from "lucide-react";
 
 export default function AuditLog() {
   const { tenant } = useCurrentTenant();
-  const { data = [], isLoading } = useQuery({
+  const { data = [], isLoading, error, refetch } = useQuery({
     enabled: !!tenant,
     queryKey: ["audit", tenant?.id],
     queryFn: async () => {
@@ -25,9 +29,26 @@ export default function AuditLog() {
         <Table>
           <TableHeader><TableRow><TableHead>When</TableHead><TableHead>Entity</TableHead><TableHead>Action</TableHead><TableHead>Actor</TableHead></TableRow></TableHeader>
           <TableBody>
-            {isLoading && <TableRow><TableCell colSpan={4} className="text-muted-foreground">Loading…</TableCell></TableRow>}
-            {!isLoading && data.length === 0 && <TableRow><TableCell colSpan={4} className="text-muted-foreground">No activity yet.</TableCell></TableRow>}
-            {data.map((r: any) => (
+            {isLoading && <TableRowsSkeleton rows={6} cols={4} />}
+            {!isLoading && error && (
+              <TableRow>
+                <TableCell colSpan={4}>
+                  <ApiError error={error} onRetry={() => refetch()} />
+                </TableCell>
+              </TableRow>
+            )}
+            {!isLoading && !error && data.length === 0 && (
+              <TableRow>
+                <TableCell colSpan={4}>
+                  <EmptyState
+                    icon={ScrollText}
+                    title="No activity yet"
+                    description="As users create, edit, or delete entities across this workspace, an immutable audit trail will appear here."
+                  />
+                </TableCell>
+              </TableRow>
+            )}
+            {!isLoading && !error && data.map((r: any) => (
               <TableRow key={r.id}>
                 <TableCell className="text-xs text-muted-foreground">{new Date(r.at).toLocaleString()}</TableCell>
                 <TableCell><span className="font-mono text-xs">{r.entity}</span></TableCell>

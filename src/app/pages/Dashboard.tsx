@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useCurrentTenant } from "@/app/lib/tenant";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AppWindow, Building2, ShieldAlert, ScrollText, Bot, Boxes } from "lucide-react";
+import { StatCardSkeleton } from "@/app/components/Skeletons";
 
 function useCount(table: string, tenantId?: string) {
   return useQuery({
@@ -29,12 +30,12 @@ export default function Dashboard() {
   const docs = useCount("documents", tenant?.id);
 
   const stats = [
-    { label: "Applications", value: apps.data ?? 0, icon: AppWindow },
-    { label: "Capabilities", value: caps.data ?? 0, icon: Building2 },
-    { label: "Services", value: svcs.data ?? 0, icon: Boxes },
-    { label: "Open Risks", value: risks.data ?? 0, icon: ShieldAlert },
-    { label: "Decisions", value: adrs.data ?? 0, icon: ScrollText },
-    { label: "Knowledge Docs", value: docs.data ?? 0, icon: Bot },
+    { label: "Applications", q: apps, icon: AppWindow },
+    { label: "Capabilities", q: caps, icon: Building2 },
+    { label: "Services", q: svcs, icon: Boxes },
+    { label: "Open Risks", q: risks, icon: ShieldAlert },
+    { label: "Decisions", q: adrs, icon: ScrollText },
+    { label: "Knowledge Docs", q: docs, icon: Bot },
   ];
 
   return (
@@ -44,16 +45,25 @@ export default function Dashboard() {
         <p className="text-sm text-muted-foreground">{tenant?.name ?? "No workspace"} · Real-time enterprise architecture posture</p>
       </div>
       <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
-        {stats.map((s) => (
-          <Card key={s.label}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-xs font-medium text-muted-foreground">{s.label}</CardTitle>
-              <s.icon className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent><div className="text-2xl font-semibold">{s.value}</div></CardContent>
-          </Card>
-        ))}
+        {stats.map((s) =>
+          s.q.isLoading ? (
+            <StatCardSkeleton key={s.label} />
+          ) : (
+            <Card key={s.label}>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-xs font-medium text-muted-foreground">{s.label}</CardTitle>
+                <s.icon className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-semibold" aria-live="polite">
+                  {s.q.error ? "—" : s.q.data ?? 0}
+                </div>
+              </CardContent>
+            </Card>
+          )
+        )}
       </div>
+
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Card>
