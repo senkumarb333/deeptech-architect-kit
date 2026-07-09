@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useCurrentTenant } from "@/app/lib/tenant";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AppWindow, Building2, ShieldAlert, ScrollText, Bot, Boxes } from "lucide-react";
+import { StatCardSkeleton } from "@/app/components/Skeletons";
 
 function useCount(table: string, tenantId?: string) {
   return useQuery({
