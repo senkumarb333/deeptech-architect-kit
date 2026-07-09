@@ -12,8 +12,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus } from "lucide-react";
+import { Plus, Building2 } from "lucide-react";
 import { toast } from "sonner";
+import { EmptyState } from "@/app/components/EmptyState";
+import { TableRowsSkeleton } from "@/app/components/Skeletons";
+import { ApiError } from "@/app/components/ErrorBoundary";
 
 export default function Capabilities() {
   const { tenant } = useCurrentTenant();
@@ -21,7 +24,7 @@ export default function Capabilities() {
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({ name: "", code: "", description: "", level: 1, criticality: "medium", lifecycle: "active" });
 
-  const { data = [], isLoading } = useQuery({
+  const { data = [], isLoading, error, refetch } = useQuery({
     enabled: !!tenant,
     queryKey: ["capabilities", tenant?.id],
     queryFn: async () => {
@@ -95,9 +98,27 @@ export default function Capabilities() {
             <TableHead>Lifecycle</TableHead><TableHead>Criticality</TableHead>
           </TableRow></TableHeader>
           <TableBody>
-            {isLoading && <TableRow><TableCell colSpan={5} className="text-muted-foreground">Loading…</TableCell></TableRow>}
-            {!isLoading && data.length === 0 && <TableRow><TableCell colSpan={5} className="text-muted-foreground">No capabilities yet.</TableCell></TableRow>}
-            {data.map((c: any) => (
+            {isLoading && <TableRowsSkeleton rows={5} cols={5} />}
+            {!isLoading && error && (
+              <TableRow>
+                <TableCell colSpan={5}>
+                  <ApiError error={error} onRetry={() => refetch()} />
+                </TableCell>
+              </TableRow>
+            )}
+            {!isLoading && !error && data.length === 0 && (
+              <TableRow>
+                <TableCell colSpan={5}>
+                  <EmptyState
+                    icon={Building2}
+                    title="No capabilities yet"
+                    description="Model your business capability map to align applications, services, and outcomes."
+                    action={{ label: "New Capability", onClick: () => setOpen(true) }}
+                  />
+                </TableCell>
+              </TableRow>
+            )}
+            {!isLoading && !error && data.map((c: any) => (
               <TableRow key={c.id}>
                 <TableCell className="font-medium">{c.name}</TableCell>
                 <TableCell>{c.code ?? "—"}</TableCell>

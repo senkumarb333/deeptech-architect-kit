@@ -5,6 +5,10 @@ import { EntityHeader } from "@/app/components/EntityHeader";
 import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { EmptyState } from "@/app/components/EmptyState";
+import { TableRowsSkeleton } from "@/app/components/Skeletons";
+import { ApiError } from "@/app/components/ErrorBoundary";
+import { ScrollText } from "lucide-react";
 
 export default function AuditLog() {
   const { tenant } = useCurrentTenant();

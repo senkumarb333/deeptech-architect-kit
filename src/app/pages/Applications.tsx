@@ -15,8 +15,11 @@ import {
 } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Plus, Search } from "lucide-react";
+import { Plus, Search, AppWindow } from "lucide-react";
 import { toast } from "sonner";
+import { EmptyState } from "@/app/components/EmptyState";
+import { TableRowsSkeleton } from "@/app/components/Skeletons";
+import { ApiError } from "@/app/components/ErrorBoundary";
 
 const LIFECYCLE = ["proposed", "planned", "active", "deprecated", "retired"] as const;
 const CRIT = ["low", "medium", "high", "critical"] as const;
@@ -31,7 +34,7 @@ export default function Applications() {
     lifecycle: "active", criticality: "medium",
   });
 
-  const { data = [], isLoading } = useQuery({
+  const { data = [], isLoading, error, refetch } = useQuery({
     enabled: !!tenant,
     queryKey: ["applications", tenant?.id],
     queryFn: async () => {
@@ -122,11 +125,28 @@ export default function Applications() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {isLoading && <TableRow><TableCell colSpan={5} className="text-muted-foreground">Loading…</TableCell></TableRow>}
-            {!isLoading && filtered.length === 0 && (
-              <TableRow><TableCell colSpan={5} className="text-muted-foreground">No applications yet. Create your first one.</TableCell></TableRow>
+            {isLoading && <TableRowsSkeleton rows={5} cols={5} />}
+            {!isLoading && error && (
+              <TableRow>
+                <TableCell colSpan={5}>
+                  <ApiError error={error} onRetry={() => refetch()} />
+                </TableCell>
+              </TableRow>
             )}
-            {filtered.map((a: any) => (
+            {!isLoading && !error && filtered.length === 0 && (
+              <TableRow>
+                <TableCell colSpan={5}>
+                  <EmptyState
+                    icon={AppWindow}
+                    title={q ? "No applications match your filter" : "No applications yet"}
+                    description={q ? "Try a different search term or clear the filter." : "Track vendors, lifecycle, and criticality across your portfolio."}
+                    action={!q ? { label: "New Application", onClick: () => setOpen(true) } : undefined}
+                    secondaryAction={q ? { label: "Clear filter", onClick: () => setQ("") } : undefined}
+                  />
+                </TableCell>
+              </TableRow>
+            )}
+            {!isLoading && !error && filtered.map((a: any) => (
               <TableRow key={a.id} className="cursor-pointer">
                 <TableCell><Link to={`/app/applications/${a.id}`} className="font-medium hover:underline">{a.name}</Link></TableCell>
                 <TableCell>{a.vendor ?? "—"}</TableCell>
