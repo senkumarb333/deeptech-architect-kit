@@ -46,6 +46,13 @@ export default function ApplicationDetail() {
           </CardContent>
         </Card>
       </div>
+      <div className="mt-4">
+        <AiInsights
+          title="AI Summary & Next Actions"
+          prompt={`Analyze this application and produce three sections: **Summary**, **Risks**, **Recommended Next Actions**.`}
+          context={`Application: ${data.name}\nDescription: ${data.description ?? "n/a"}\nVendor: ${data.vendor ?? "n/a"}\nCategory: ${data.category ?? "n/a"}\nLifecycle: ${data.lifecycle ?? "n/a"}\nCriticality: ${data.criticality ?? "n/a"}\nAnnual cost: ${data.cost_annual ?? "n/a"}\nUsers: ${data.users_count ?? "n/a"}`}
+        />
+      </div>
     </div>
   );
 }
