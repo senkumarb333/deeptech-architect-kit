@@ -36,7 +36,7 @@ export function AiInsights({ title = "AI Summary", prompt, context, autoRun = fa
     }
   }
 
-  if (autoRun && !streaming && !text && started) { void run(); }
+  
 
   return (
     <Card className="border-primary/20 bg-gradient-to-br from-primary/[0.03] to-transparent">

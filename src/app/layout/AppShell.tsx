@@ -12,6 +12,7 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Command, LogOut, User as UserIcon } from "lucide-react";
 import { ErrorBoundary } from "@/app/components/ErrorBoundary";
+import { AiCopilot } from "@/app/components/AiCopilot";
 
 export default function AppShell() {
   const { session, loading } = useSession();
