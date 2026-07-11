@@ -90,6 +90,7 @@ export default function AppShell() {
           </main>
         </div>
         <CommandPalette />
+        <AiCopilot context={`Current workspace: ${tenant?.name ?? "unknown"}. User: ${session.user.email}.`} />
       </div>
     </SidebarProvider>
   );

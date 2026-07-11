@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LifecycleBadge, CriticalityBadge } from "@/app/components/LifecycleBadge";
 import { ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AiInsights } from "@/app/components/AiInsights";
 
 export default function ApplicationDetail() {
   const { id } = useParams();
