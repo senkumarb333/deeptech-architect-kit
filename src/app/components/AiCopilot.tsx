@@ -63,10 +63,10 @@ export function AiCopilot({ context, triggerLabel = "AI Copilot" }: Props) {
   function handleStop() { abortRef.current?.abort(); }
 
   async function handleRegenerate() {
-    const lastUser = [...messages].reverse().find((m) => m.role === "user");
-    if (!lastUser) return;
-    const trimmed = messages.slice(0, messages.map((m, i) => ({ m, i })).reverse().find((x) => x.m.role === "user")!.i + 1);
-    await run(trimmed);
+    let lastUserIdx = -1;
+    for (let i = messages.length - 1; i >= 0; i--) if (messages[i].role === "user") { lastUserIdx = i; break; }
+    if (lastUserIdx === -1) return;
+    await run(messages.slice(0, lastUserIdx + 1));
   }
 
   function handleCopy(text: string, idx: number) {
