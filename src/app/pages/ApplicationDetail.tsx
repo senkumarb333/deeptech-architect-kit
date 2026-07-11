@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LifecycleBadge, CriticalityBadge } from "@/app/components/LifecycleBadge";
 import { ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AiInsights } from "@/app/components/AiInsights";
 
 export default function ApplicationDetail() {
   const { id } = useParams();
@@ -44,6 +45,13 @@ export default function ApplicationDetail() {
             Services, APIs, dependencies and capability mapping will appear in the Knowledge Graph (Phase 2).
           </CardContent>
         </Card>
+      </div>
+      <div className="mt-4">
+        <AiInsights
+          title="AI Summary & Next Actions"
+          prompt={`Analyze this application and produce three sections: **Summary**, **Risks**, **Recommended Next Actions**.`}
+          context={`Application: ${data.name}\nDescription: ${data.description ?? "n/a"}\nVendor: ${data.vendor ?? "n/a"}\nCategory: ${data.category ?? "n/a"}\nLifecycle: ${data.lifecycle ?? "n/a"}\nCriticality: ${data.criticality ?? "n/a"}\nAnnual cost: ${data.cost_annual ?? "n/a"}\nUsers: ${data.users_count ?? "n/a"}`}
+        />
       </div>
     </div>
   );
